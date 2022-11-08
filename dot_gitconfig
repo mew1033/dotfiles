@@ -1,0 +1,26 @@
+[push]
+    default = current
+[user]
+    name = Chandler Newby
+[alias]
+    work = config user.email "newby@adobe.com"
+    workkey = config user.signingkey "30195CE28D19C092"
+    personalkey = config user.signingkey "D53A9A7303974244"
+    personal = config user.email "chandler.newby@gmail.com"
+[commit]
+    gpgsign = true
+[color]
+    ui = true
+[color "status"]
+    changed = red bold
+    added = green bold
+    untracked = red bold
+[color "diff"]
+    old = red bold
+    new = green bold
+[color "interactive"]
+    prompt = blue white
+[includeIf "gitdir:github/"]
+  path = .gitconfig-github
+[includeIf "gitdir:git.corp/"]
+  path = .gitconfig-git.corp

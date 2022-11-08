@@ -1,0 +1,39 @@
+# NOTE: This file should be symlinked to the wsl home.
+
+export ZSH="/home/chandler/.oh-my-zsh"
+ZSH_THEME="agnoster"
+HIST_STAMPS="mm/dd/yyyy"
+plugins=(git docker virtualenvwrapper gh)
+
+source $ZSH/oh-my-zsh.sh
+
+
+# My aliases
+alias ll="ls -al"
+
+# Fix LESS because the default is dumb
+export LESS=-FRX
+
+# I need .local on my path
+export PATH=$HOME/.local/bin:$PATH
+
+# Hide username if it's me:
+export DEFAULT_USER="$(whoami)"
+
+# Stuff for virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/projects
+export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+source /usr/local/bin/virtualenvwrapper.sh
+
+export WINHOME="/mnt/c/Users/Chandler"
+
+export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
+ss -a | grep -q $SSH_AUTH_SOCK
+if [ $? -ne 0   ]; then
+    rm -f $SSH_AUTH_SOCK
+    ( setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"$WINHOME/.wsl/npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork & ) >/dev/null 2>&1
+fi
+
+$HOME/.local/bin/gpg-agent-relay start
+#export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
