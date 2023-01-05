@@ -28,6 +28,7 @@
 {{- if eq .chezmoi.os "windows" }}
     autocrlf = true
     sshCommand = 'C:\\Windows\\System32\\OpenSSH\\ssh.exe'
+    editor = \"C:\\Users\\Chandler\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\code\" --wait
 {{- else }}
     autocrlf = input
 {{ end }}
