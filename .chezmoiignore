@@ -1,6 +1,26 @@
 LICENSE
 README.md
 
+# Ignore the age key
+chezmoi_key.txt.age
+
+# Stuff that is only applicable on Windows
 {{ if ne .chezmoi.os "windows" }}
 Documents
+{{ end }}
+
+# Install npiperelay in Windows if WSL is installed.
+{{ if not .wsl_installed}}
+.wsl/npiperelay.exe
+{{ end }}
+
+# Only on Linux
+{{ if ne .chezmoi.os "linux" }}
+.zshrc
+.zprofile
+{{ end }}
+
+# Only on WSL Linux
+{{ if not .in_wsl}}
+.local/bin/wsl-ssh-agent-relay
 {{ end }}

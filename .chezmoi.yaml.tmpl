@@ -1,0 +1,25 @@
+{{/* boolean feature tags */}}
+{{- $in_wsl := false -}}{{/* true if chezmoi is running inside wsl */}}
+{{- $wsl_installed := false -}}{{/* true if wsl is (or will be) installed on this machine */}}
+{{- "" -}}
+
+{{- if eq .chezmoi.os "linux" -}}
+{{-   if contains "wsl" (get .chezmoi.kernel "osrelease" | lower) -}}
+{{-     $in_wsl = true -}}
+{{-   end }}
+{{- end }}
+
+{{- if eq .chezmoi.os "windows" -}}
+{{-   $wsl_installed = promptBoolOnce . "wsl_installed" "Is WSL installed on this machine, or will it be" -}}
+{{- end -}}
+
+progress: true
+
+encryption: "age"
+age:
+  identity: "~\\chezmoi_key.txt"
+  recipient: "age1qvx7dpjkns0crcxxdd2ut0ktzpeev75hqnrygkmch6x5hts6lseqltqj8w"
+
+data:
+    in_wsl: {{ $in_wsl }}
+    wsl_installed: {{ $wsl_installed }}

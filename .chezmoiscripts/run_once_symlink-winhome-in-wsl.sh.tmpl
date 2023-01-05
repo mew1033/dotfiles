@@ -1,0 +1,7 @@
+{{- if .in_wsl -}}
+#!/bin/bash
+if [ ! -L ~/winhome ]
+then
+    ln -s /mnt/c/Users/Chandler ~/winhome
+fi
+{{- end }}

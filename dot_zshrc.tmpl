@@ -1,5 +1,3 @@
-# NOTE: This file should be symlinked to the wsl home.
-
 export ZSH="/home/chandler/.oh-my-zsh"
 ZSH_THEME="agnoster"
 HIST_STAMPS="mm/dd/yyyy"
@@ -26,14 +24,9 @@ export PROJECT_HOME=$HOME/projects
 export VIRTUALENVWRAPPER_PYTHON=$(which python3)
 source /usr/local/bin/virtualenvwrapper.sh
 
+{{- if .in_wsl -}}
 export WINHOME="/mnt/c/Users/Chandler"
 
-export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
-ss -a | grep -q $SSH_AUTH_SOCK
-if [ $? -ne 0   ]; then
-    rm -f $SSH_AUTH_SOCK
-    ( setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"$WINHOME/.wsl/npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork & ) >/dev/null 2>&1
-fi
-
-$HOME/.local/bin/gpg-agent-relay start
-#export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
+${HOME}/.local/bin/wsl-ssh-agent-relay start
+export SSH_AUTH_SOCK=${HOME}/.ssh/wsl-ssh-agent.sock
+{{- end }}

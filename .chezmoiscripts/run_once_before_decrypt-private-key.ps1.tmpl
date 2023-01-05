@@ -1,0 +1,9 @@
+{{- if eq .chezmoi.os "windows" -}}
+
+$key_exists = Test-Path -Path $Home/chezmoi_key.txt -PathType Leaf
+if ( !$key_exists )
+{
+    age --decrypt --output "$Home/chezmoi_key.txt" "{{ .chezmoi.sourceDir }}/chezmoi_key.txt.age"
+}
+
+{{- end }}

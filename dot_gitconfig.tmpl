@@ -24,3 +24,15 @@
   path = .gitconfig-github
 [includeIf "gitdir:git.corp/"]
   path = .gitconfig-git.corp
+[core]
+{{- if eq .chezmoi.os "windows" }}
+    autocrlf = true
+    sshCommand = 'C:\\Windows\\System32\\OpenSSH\\ssh.exe'
+{{- else }}
+    autocrlf = input
+{{ end }}
+{{ if eq .chezmoi.os "windows" -}}
+[gpg]
+   program = C:\\Program Files (x86)\\GnuPG\\bin\\gpg.exe
+{{- end }}
+

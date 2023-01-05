@@ -1,0 +1,10 @@
+{{- if eq .chezmoi.os "linux" -}}
+
+#!/bin/sh
+
+if [ ! -f "${HOME}/chezmoi_key.txt" ]; then
+    age --decrypt --output "${HOME}/chezmoi_key.txt" "{{ .chezmoi.sourceDir }}/chezmoi_key.txt.age"
+    chmod 600 "${HOME}/chezmoi_key.txt"
+fi
+
+{{- end }}
