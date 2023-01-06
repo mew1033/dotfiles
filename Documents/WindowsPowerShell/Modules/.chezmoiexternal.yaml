@@ -1,0 +1,11 @@
+{{- if eq .chezmoi.os "windows" -}}
+DockerCompletion:
+  type: git-repo
+  url: https://github.com/matt9ucci/DockerCompletion
+  refreshPeriod: 168h
+
+posh-git:
+  type: git-repo
+  url: https://github.com/dahlbyk/posh-git
+  refreshPeriod: 168h
+{{- end -}}
