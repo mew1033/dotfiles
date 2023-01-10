@@ -38,7 +38,7 @@
 {{- end -}}
 {{- if .in_wsl -}}
 [gpg]
-    program = /home/{{ .chezmoi.username }}/gpg_windows
+    program = /home/{{ .chezmoi.username }}/.gpg_windows
 [credential]
-    helper = '/mnt/c/Program Files/Git/mingw64/bin/git-credential-manager.exe'
+    helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
 {{ end }}
