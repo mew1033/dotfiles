@@ -3,6 +3,10 @@
 {{- $wsl_installed := false -}}{{/* true if wsl is (or will be) installed on this machine */}}
 {{- "" -}}
 
+
+{{/* Default variables */}}
+{{- $age_key_path := "~/chezmoi_key.txt" -}}
+
 {{- if eq .chezmoi.os "linux" -}}
 {{-   if contains "wsl" (get .chezmoi.kernel "osrelease" | lower) -}}
 {{-     $in_wsl = true -}}
@@ -11,13 +15,14 @@
 
 {{- if eq .chezmoi.os "windows" -}}
 {{-   $wsl_installed = promptBoolOnce . "wsl_installed" "Is WSL installed on this machine, or will it be" -}}
+{{-   $age_key_path = "~\\chezmoi_key.txt" -}}
 {{- end -}}
 
 progress: true
 
 encryption: "age"
 age:
-  identity: "~\\chezmoi_key.txt"
+  identity: {{ $age_key_path }}
   recipient: "age1qvx7dpjkns0crcxxdd2ut0ktzpeev75hqnrygkmch6x5hts6lseqltqj8w"
 
 data:

@@ -1,11 +1,32 @@
+# Only in WSL
+{{ if .in_wsl}}
 .local/bin/wsl-ssh-agent-relay:
   type: file
   url: 'https://raw.githubusercontent.com/rupor-github/wsl-ssh-agent/master/docs/wsl-ssh-agent-relay'
   executable: true
+{{ end }}
 
+# Only on Windows if wsl is installed.
+{{ if .wsl_installed}}
 # This entry is just for npiperelay. Do it this way to make it much simpler.
 .wsl:
   type: archive
   url: 'https://github.com/jstarks/npiperelay/releases/download/v0.1.0/npiperelay_windows_amd64.zip'
   include:
     - npiperelay.exe
+{{ end }}
+
+# Only on Linux
+{{ if eq .chezmoi.os "linux" }}
+.oh-my-zsh:
+  type: git-repo
+  url: https://github.com/ohmyzsh/ohmyzsh
+  exact: true
+  refreshPeriod: "168h"
+
+.oh-my-zsh/custom/plugins/zsh-syntax-highlighting:
+  type: git-repo
+  url: https://github.com/zsh-users/zsh-syntax-highlighting
+  exact: true
+  refreshPeriod: "168h"
+{{ end }}

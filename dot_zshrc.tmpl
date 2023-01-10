@@ -1,7 +1,7 @@
 export ZSH="/home/chandler/.oh-my-zsh"
 ZSH_THEME="agnoster"
 HIST_STAMPS="mm/dd/yyyy"
-plugins=(git docker virtualenvwrapper gh)
+plugins=(git docker virtualenvwrapper gh zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -12,8 +12,11 @@ alias ll="ls -al"
 # Fix LESS because the default is dumb
 export LESS=-FRX
 
-# I need .local on my path
-export PATH=$HOME/.local/bin:$PATH
+# I need ~/.local/bin on my path
+# Also ~/bin
+export PATH=$HOME/.local/bin:$HOME/bin:$PATH
+
+
 
 # Hide username if it's me:
 export DEFAULT_USER="$(whoami)"

@@ -19,6 +19,7 @@ AppData/
 {{ if ne .chezmoi.os "linux" }}
 .zshrc
 .zprofile
+.oh-my-zsh
 {{ end }}
 
 # Only on WSL Linux
