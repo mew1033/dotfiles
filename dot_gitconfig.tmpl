@@ -34,9 +34,11 @@
 {{ end }}
 {{- if eq .chezmoi.os "windows" -}}
 [gpg]
-   program = C:\\Program Files (x86)\\GnuPG\\bin\\gpg.exe
+    program = C:\\Program Files (x86)\\GnuPG\\bin\\gpg.exe
 {{- end -}}
 {{- if .in_wsl -}}
 [gpg]
-   program = "/mnt/c/Program Files (x86)/GnuPG/bin/gpg.exe"
+    program = /home/{{ .chezmoi.username }}/gpg_windows
+[credential]
+    helper = '/mnt/c/Program Files/Git/mingw64/bin/git-credential-manager.exe'
 {{ end }}

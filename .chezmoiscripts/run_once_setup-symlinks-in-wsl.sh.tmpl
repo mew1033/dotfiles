@@ -4,4 +4,9 @@ if [ ! -L ~/winhome ]
 then
     ln -s /mnt/c/Users/Chandler ~/winhome
 fi
+
+if [ ! -L ~/gpg_windows ]
+then
+    ln -s '/mnt/c/Program Files (x86)/GnuPG/bin/gpg.exe' ~/gpg_windows
+fi
 {{- end }}
