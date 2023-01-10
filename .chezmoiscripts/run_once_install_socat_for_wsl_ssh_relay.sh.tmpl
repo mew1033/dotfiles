@@ -1,0 +1,7 @@
+{{- if .in_wsl -}}
+#!/bin/bash
+
+# Only in WSL
+sudo apt install socat -y
+
+{{ end }}
