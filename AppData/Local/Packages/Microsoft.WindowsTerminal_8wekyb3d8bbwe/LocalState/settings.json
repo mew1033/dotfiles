@@ -1,10 +1,10 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions":
+    "actions": 
     [
         {
-            "command":
+            "command": 
             {
                 "action": "copy",
                 "singleLine": false
@@ -20,7 +20,7 @@
             "keys": "ctrl+shift+f"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "splitPane",
                 "split": "auto",
@@ -32,22 +32,23 @@
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-    "profiles":
+    "profiles": 
     {
-        "defaults":
+        "defaults": 
         {
+            "adjustIndistinguishableColors": "always",
             "antialiasingMode": "cleartype",
             "colorScheme": "One Half Dark",
-            "font":
+            "font": 
             {
                 "face": "MesloLGM NF",
-                "size": 11
+                "size": 11.0
             },
             "historySize": 15131,
-            "opacity": 69,
+            "opacity": 81,
             "useAcrylic": true
         },
-        "list":
+        "list": 
         [
             {
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
@@ -69,7 +70,7 @@
             }
         ]
     },
-    "schemes":
+    "schemes": 
     [
         {
             "background": "#0C0C0C",
@@ -303,5 +304,7 @@
         }
     ],
     "showTerminalTitleInTitlebar": true,
+    "theme": "system",
+    "themes": [],
     "useAcrylicInTabRow": true
 }
