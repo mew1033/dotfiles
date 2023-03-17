@@ -32,7 +32,7 @@
 {{- else }}
     autocrlf = input
 {{ end }}
-{{- if eq .chezmoi.os "windows" -}}
+{{- if eq .chezmoi.os "windows" }}
 [gpg]
     program = C:\\Program Files (x86)\\GnuPG\\bin\\gpg.exe
 {{- end -}}
