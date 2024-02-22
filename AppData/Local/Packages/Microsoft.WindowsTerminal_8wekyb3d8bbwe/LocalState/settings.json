@@ -42,6 +42,7 @@
     {
         "defaults":
         {
+            "adjustIndistinguishableColors": "always",
             "antialiasingMode": "cleartype",
             "colorScheme": "One Half Dark",
             "font":
