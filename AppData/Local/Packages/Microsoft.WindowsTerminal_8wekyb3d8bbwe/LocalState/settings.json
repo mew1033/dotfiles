@@ -32,6 +32,12 @@
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+    "newTabMenu":
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
     "profiles":
     {
         "defaults":
@@ -40,16 +46,21 @@
             "colorScheme": "One Half Dark",
             "font":
             {
-                "face": "MesloLGM NF",
-                "size": 11
+                "face": "MesloLGM Nerd Font",
+                "size": 10.0
             },
             "historySize": 15131,
-            "opacity": 69,
-            "useAcrylic": true
+            "opacity": 85,
+            "useAcrylic": true,
+            "useAtlasEngine": true
         },
         "list":
         [
             {
+                "colorScheme":
+                {
+                    "light": "One Half Dark"
+                },
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
@@ -303,5 +314,50 @@
         }
     ],
     "showTerminalTitleInTitlebar": true,
+    "themes":
+    [
+        {
+            "name": "legacyDark",
+            "tab":
+            {
+                "background": null,
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "window":
+            {
+                "applicationTheme": "dark",
+                "useMica": false
+            }
+        },
+        {
+            "name": "legacyLight",
+            "tab":
+            {
+                "background": null,
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "window":
+            {
+                "applicationTheme": "light",
+                "useMica": false
+            }
+        },
+        {
+            "name": "legacySystem",
+            "tab":
+            {
+                "background": null,
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "window":
+            {
+                "applicationTheme": "system",
+                "useMica": false
+            }
+        }
+    ],
     "useAcrylicInTabRow": true
 }

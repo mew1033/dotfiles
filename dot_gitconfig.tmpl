@@ -5,7 +5,7 @@
 [alias]
     work = config user.email "newby@adobe.com"
     workkey = config user.signingkey "30195CE28D19C092"
-    personalkey = config user.signingkey "D53A9A7303974244"
+    personalkey = config user.signingkey "D9039756A1EAA89B"
     personal = config user.email "chandler.newby@gmail.com"
 [commit]
     gpgsign = true
@@ -20,9 +20,11 @@
     new = green bold
 [color "interactive"]
     prompt = blue white
-[includeIf "gitdir:github/"]
+[includeIf "gitdir:github.com/personal/"]
   path = .gitconfig-github
 [includeIf "gitdir:git.corp/"]
+  path = .gitconfig-git.corp
+[includeIf "gitdir:github.com/enterprise_cloud/"]
   path = .gitconfig-git.corp
 [core]
 {{- if eq .chezmoi.os "windows" }}
@@ -32,9 +34,11 @@
 {{- else }}
     autocrlf = input
 {{ end }}
-{{- if eq .chezmoi.os "windows" -}}
+{{ if eq .chezmoi.os "windows" -}}
 [gpg]
     program = C:\\Program Files (x86)\\GnuPG\\bin\\gpg.exe
+[credential "https://git.corp.adobe.com"]
+	provider = github
 {{- end -}}
 {{- if .in_wsl -}}
 [gpg]
